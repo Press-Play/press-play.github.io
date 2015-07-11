@@ -1,6 +1,18 @@
 doctype
 html
-  head
-    link(rel="stylesheet" href="/main.css")
-  body
-    != yield
+	head
+		title khanh nguyen.
+
+		//- Fonts
+		link(href="http://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet" type="text/css")
+
+		//- Stylesheets
+		link(rel="stylesheet" href="styles/importer.css")
+
+	body
+		//- Page
+		!= yield
+
+		//- Javascripts
+		script(src="js/lib/jquery.min.js")
+		script(src="js/main.js")

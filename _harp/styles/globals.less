@@ -1,0 +1,104 @@
+//----------------------------------------//
+// Variables
+//----------------------------------------//
+// Colors
+@color-transparent  : rgba(0, 0, 0, 0);
+@color-white        : #FFFFFF;
+@color-white-grey   : #F3F3F3;
+@color-grey         : #E2E2E2;
+@color-grey-light   : #C0C0C0;
+@color-black-grey   : #1F1F1F;
+@color-black        : #000000;
+
+// Font
+@font-family          : "Raleway";
+@font-size-default    : 16px;
+@font-size-title      : 64px;
+@font-color-default   : @color-black-grey;
+@font-weight-default  : 200;
+@font-weight-title    : 300;
+
+// Animation
+@animate-speed-default : 300ms;
+
+//----------------------------------------//
+// Functions/Helpers
+//----------------------------------------//
+// Material Design
+.material-shadow(@depth: 1) {
+  box-shadow:
+  0px calc(@depth*0px) calc(@depth*4px) rgba(0,0,0,.14),
+  0px calc(@depth*4px) calc(@depth*8px) rgba(0,0,0,.28);
+}
+
+.material-center(@top: 50%, @left: 50%) {
+  position  : absolute;
+  top       : @top;
+  left      : @left;
+  transform : translate(-@left, -@top);
+};
+
+// Font
+.font-default() {
+  color                   : @font-color-default;
+  font-family             : @font-family;
+  font-size               : @font-size-default;
+  font-weight             : @font-weight-default; 
+  -webkit-font-smoothing  : antialiased;
+}
+
+.font-color(@color) {
+  color                   : @color;
+}
+
+.font-size(@size) {
+  font-size               : @size;
+}
+
+// Shapes
+.shape-circle() {
+  border-radius: 50%;
+}
+
+.shape-rectangle() {
+  border-radius: 0%;
+}
+
+.shape-rectangle-rounded(@chamfer: 5px) {
+  border-radius: @chamfer;
+}
+
+// Miscellaneous
+.animated(@speed: @animate-speed-default) {
+  transition          : all ease-in-out @speed;
+  -webkit-transition  : all ease-in-out @speed;
+  -moz-transition     : all ease-in-out @speed;
+  -ms-transition      : all ease-in-out @speed;
+  -o-transition       : all ease-in-out @speed;
+}
+
+.unselectable-text() {
+  user-select         : none;
+  -webkit-user-select : none;
+  -moz-user-select    : none;
+  -ms-user-select     : none;
+  -o-user-select      : none;
+  cursor              : default;
+}
+
+.visible() {
+  pointer-events  : default;
+  visibility      : visible;
+  opacity         : 1;
+}
+
+.hidden() {
+  pointer-events  : none;
+  visibility      : hidden;
+  opacity         : 0;
+}
+
+.contract() {
+  height  : 0;
+  width   : 0;
+}

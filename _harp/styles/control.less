@@ -1,0 +1,172 @@
+// Imports
+@import 'globals.less';
+
+
+//----------------------------------------//
+// GLOBAL DEFAULTS
+//----------------------------------------//
+// Main body and pages
+body {
+	.font-default();
+
+	background  : @color-white-grey;
+	margin 			: 0;
+	padding 		: 0;
+}
+
+.page-default() {
+  width       : 100vw;
+  height      : 100vh;
+  overflow    : hidden;
+  background  : @color-white-grey;
+}
+
+// Navagation circles
+.nav-circle(@landing) when(@landing = true ) { position: relative; }
+.nav-circle(@landing) when(@landing = false) { position: relative; }
+
+.nav-circle(@landing: true){
+	.shape-circle();
+
+	height						: 25px;
+	width							: 25px;
+	margin 						: 20px;
+	background-color	: @color-grey-light;
+	cursor 						: pointer; 
+
+	&:hover {
+    content           : url('../img/feather.png');
+    background-color  : @color-transparent;
+	}
+}
+
+div.nav-button {
+  .nav-circle();
+}
+// div.nav-landing {
+// 	.nav-circle(true);
+// }
+// div.nav-about {
+// 	.nav-circle(true);
+// }
+// div.nav-phoenix {
+// 	.nav-circle(true);
+// }
+// div.nav-featherstorm {
+// 	.nav-circle(true);
+// }
+// div.nav-villavu {
+// 	.nav-circle(true);
+// }
+
+div.navigation {
+  .page-default();
+
+  position    : fixed;
+  top         : 0;
+  left        : 0;
+  background  : @color-transparent;
+
+  div.navigation-container {
+    .material-center(58%, 50%);
+    .animated();
+    .visible();
+
+    height          : default;
+    width           : 400px;
+    display         : flex;
+    justify-content : space-between;
+
+    &.bottom {
+      .material-center(95%, 50%);
+    }
+
+    &.hide {
+      .hidden();
+      width: 100% !important;
+    }
+  }
+}
+
+//----------------------------------------//
+// PAGE: LANDING
+//----------------------------------------//
+div.landing {
+	.page-default();
+
+	div.landing-container {
+
+    .material-center(45%, 50%);
+
+    overflow    : hidden;
+    white-space : nowrap;
+	}
+}
+
+h1 {
+	.unselectable-text();
+
+	font-size				: @font-size-title;
+	font-weight			: @font-weight-title;
+	text-align  		: center;
+	border-bottom		: @color-grey-light solid 1px;
+	padding-bottom	: 10px;
+	margin					: 0;
+}
+
+h3 {
+	font-weight 		: 200;
+	text-align  		: center;
+}
+
+//----------------------------------------//
+// PAGE: ABOUT
+//----------------------------------------//
+div.about {
+	.page-default();
+
+	background : @color-black;
+
+	div.about-container {
+		
+	}
+}
+
+//----------------------------------------//
+// PAGE: PHOENIX
+//----------------------------------------//
+div.phoenix {
+	.page-default();
+
+	//background : @color-grey;
+
+	div.phoenix-container {
+		
+	}
+}
+
+//----------------------------------------//
+// PAGE: FEATHERSTORM
+//----------------------------------------//
+div.featherstorm {
+	.page-default();
+
+	background : @color-black;
+
+	div.featherstorm-container {
+		
+	}
+}
+
+//----------------------------------------//
+// PAGE: VILLAVU
+//----------------------------------------//
+div.villavu {
+	.page-default();
+
+	//background : @color-grey;
+
+	div.villavu-container {
+		
+	}
+}
