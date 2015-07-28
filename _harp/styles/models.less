@@ -1,0 +1,69 @@
+@import 'globals.less';
+
+// .rand(@min: 0, @max: @min+1, @int: 0) { 
+// 	.check-int() {
+// 		@getNum: `Math.random() * (@{max} - @{min} + @{int})`;
+// 		@base: unit(`@{int} == 1 ? Math.floor(@{getNum}) : @{getNum}`);
+// 	}
+// 	.check-int();
+// 	@rand: @base + @min;
+// }
+
+// _phoenix
+@model-phoenix-width : 500px;
+@model-phoenix-gutter: 0.5%;
+
+.model-phoenix {
+	.material-shadow();
+	.shape-rectangle-rounded();
+	.shape-size(calc(@model-phoenix-width * 0.7), @model-phoenix-width);
+
+	background-color: @color-white-grey;
+	position: absolute;
+
+	.p-header {
+		.material-shadow();
+		.shape-rectangle-rounded(2px);
+		.shape-size(10%, inherit);
+
+		background-color: grey;
+		position: relative;
+		top:0;
+		left:0;
+
+		.p-text {
+			.material-center();
+
+			color 		: white; 
+			font-weight : @font-weight-title;
+		}
+	}
+
+	.p-masonry {
+		position: relative;
+		height: calc(90% - 4 * @model-phoenix-gutter) !important;
+		width: calc(inherit - @model-phoenix-gutter);
+		margin: @model-phoenix-gutter;
+		overflow-y: scroll;
+
+		.p-element {
+			.shape-rectangle-rounded(2px);
+			.material-shadow(0.5);
+
+			height: calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
+			width : calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
+			background-color: white;
+			margin: @model-phoenix-gutter;
+
+			&.size-med {
+				height: calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
+				width : calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
+			}
+
+			&.size-big {
+
+			}
+		}
+		
+	}
+}
