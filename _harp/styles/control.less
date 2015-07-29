@@ -37,6 +37,7 @@ body {
   margin            : 20px;
   background-color  : @color-grey-light;
   cursor            : pointer; 
+  pointer-events    : all;
 
   &:hover {
     content           : url('../img/feather.png');
@@ -46,6 +47,7 @@ body {
 
 div.nav-button {
   .nav-circle();
+
 }
 // div.nav-landing {
 //  .nav-circle(true);
@@ -82,8 +84,6 @@ div.navigation {
     top             : ~"calc(50% + 30px)";
     left            : 50%;
     transform       : translate(-50%, 5px);
-    //transform       : translateY(~"calc(-1 * (50% + 30px))");
-
     height          : default;
     width           : 400px;
     display         : flex;
@@ -142,21 +142,30 @@ div.about {
   div.about-container {
     .page-container();
 
-    dislpay : flex;
-
     div.face {
-
-      width  : 50%;
+      width    : calc(100% / 3);
+      margin   : auto;
 
       img {
         .shape-circle();
+
+        display     : block; 
+        margin      : auto;
         max-height  : 80%; 
         max-width   : 80%;
       }
     }
 
     div.text {
-      width : 50%;
+      width  : calc(100% / 3);
+      color  : white;
+    }
+
+    div.line {
+      .shape-line(3px, 100px, 20deg);
+
+      border-radius : 3px;
+      background    : white;
     }
   }
 }
@@ -183,7 +192,7 @@ div.featherstorm {
   background : @color-black;
 
   div.featherstorm-container {
-    
+    .page-container();
   }
 }
 
@@ -196,6 +205,6 @@ div.villavu {
   //background : @color-grey;
 
   div.villavu-container {
-    
+    .page-container();
   }
 }

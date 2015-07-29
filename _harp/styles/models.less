@@ -9,7 +9,9 @@
 // 	@rand: @base + @min;
 // }
 
-// _phoenix
+//----------------------------------------//
+// _PHOENIX MODEL
+//----------------------------------------//
 @model-phoenix-width : 500px;
 @model-phoenix-gutter: 0.5%;
 
@@ -26,10 +28,10 @@
 		.shape-rectangle-rounded(2px);
 		.shape-size(10%, inherit);
 
-		background-color: grey;
-		position: relative;
-		top:0;
-		left:0;
+		background-color 	: grey;
+		position 			: relative;
+		top 				: 0;
+		left 				: 0;
 
 		.p-text {
 			.material-center();
@@ -40,24 +42,24 @@
 	}
 
 	.p-masonry {
-		position: relative;
-		height: calc(90% - 4 * @model-phoenix-gutter) !important;
-		width: calc(inherit - @model-phoenix-gutter);
-		margin: @model-phoenix-gutter;
-		overflow-y: scroll;
+		position 	: relative;
+		height   	: calc(90% - 4 * @model-phoenix-gutter) !important;
+		width 		: calc(inherit - @model-phoenix-gutter);
+		margin 		: @model-phoenix-gutter;
+		overflow-y 	: scroll;
 
 		.p-element {
 			.shape-rectangle-rounded(2px);
 			.material-shadow(0.5);
 
-			height: calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
-			width : calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
+			height : calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
+			width  : calc((@model-phoenix-width / 5) - (@model-phoenix-gutter * (6 * 2)));
 			background-color: white;
 			margin: @model-phoenix-gutter;
 
 			&.size-med {
-				height: calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
-				width : calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
+				height : calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
+				width  : calc((@model-phoenix-width * (2/5)) - (@model-phoenix-gutter * (7 * 2)));
 			}
 
 			&.size-big {
@@ -65,5 +67,65 @@
 			}
 		}
 		
+	}
+}
+
+//----------------------------------------//
+// _FEATHERSTORM MODEL
+//----------------------------------------//
+@model-featherstorm-width: @model-phoenix-width;
+
+.model-featherstorm {
+	.material-shadow();
+	.shape-rectangle-rounded();
+	.shape-size(calc(@model-featherstorm-width * 0.7), @model-featherstorm-width);
+
+	background-color: @color-white-grey;
+	position: absolute;
+
+	.f-header {
+		.material-shadow();
+		.shape-rectangle-rounded(2px);
+		.shape-size(10%, inherit);
+
+		background-color 	: grey;
+		position 			: relative;
+		top 				: 0;
+		left 				: 0;
+
+		.f-text {
+			.material-center();
+
+			color 		: white; 
+			font-weight : @font-weight-title;
+
+			.f-storm {
+				font-weight : @font-weight-title + 100;
+			}
+		}
+	}
+
+	.f-body {
+		position 		: relative;
+		height 			: 90%;
+		display 		: flex;
+		justify-content : space-between;
+
+		.f-graph {
+			width : 65%;
+		}
+		.f-table {
+			//width : 10%;
+			//width : auto;
+			flex: 1;
+		}
+		.f-portfolio {
+			width : calc(@model-featherstorm-width * 0.7 * 0.1);
+		}
+	}
+	.f-button-container {
+		.f-button {
+
+		}
 	}
 }

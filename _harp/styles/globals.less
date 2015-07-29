@@ -74,6 +74,13 @@
   width   : @w;
 }
 
+.shape-line(@px: 3px, @length: 100px, @rotation: 0) {
+  transform-origin  : 0 100%;
+  height            : @px;
+  width             : @length;
+  transform         : rotate(@rotation);
+}
+
 // Miscellaneous
 .animated(@speed: @animate-speed-default) {
   transition          : all ease-in-out @speed;
