@@ -17,10 +17,10 @@
 @font-size-title      : 64px;
 @font-color-default   : @color-black-grey;
 @font-weight-default  : 200;
-@font-weight-title    : 300;
+@font-weight-title    : 800;
 
 // Animation
-@animate-speed-default : 300ms;
+@animate-speed-default : 200ms;
 
 //----------------------------------------//
 // Functions/Helpers
@@ -103,15 +103,21 @@
   pointer-events  : default;
   visibility      : visible;
   opacity         : 1;
+  display         : default;
 }
 
 .hidden() {
   pointer-events  : none;
   visibility      : hidden;
   opacity         : 0;
+  display         : none;
 }
 
 .contract() {
   height  : 0;
   width   : 0;
+  border  : 0;
+  margin  : 0;
+  padding : 0;
+  opacity : 0;
 }

@@ -14,7 +14,7 @@ body {
   padding     : 0;
 }
 
-.page-default(@height: 100vh) {
+.page-default(@height: auto) {
   width       : 100vw;
   height      : @height;
   overflow    : hidden;
@@ -100,72 +100,182 @@ div.navigation {
   }
 }
 
+
+//----------------------------------------//
+// TEXT
+//----------------------------------------//
+h1 {
+  .unselectable-text();
+
+  font-size        : @font-size-title;
+  font-weight      : @font-weight-title;
+  text-align       : center;
+  // border-bottom    : @color-grey-light solid 1px;
+  background-color : @color-black;
+  color            : @color-white;
+  padding          : 20px;
+  margin           : 0;
+}
+
+h2 {
+  font-weight      : 800;
+  text-align       : center;
+  background-color : @color-black;
+  color            : @color-white;
+  padding          : 10px;
+}
+
+h3 {
+  font-weight      : 200;
+  text-align       : center;
+  background-color : @color-black;
+  color            : @color-white;
+  padding          : 10px;
+}
+
+h4 {
+  margin: 5px;
+  text-align: center;
+}
+
+//----------------------------------------//
+// TILES
+//----------------------------------------//
+.tile() {
+  .material-shadow(1);
+  .animated();
+  .visible();
+
+  width            : 25%;
+  // width            : calc(100% / 4);
+  height           : 180px;
+  color            : @color-black;
+  background-color : @color-white;
+  margin           : 10px;
+  padding          : 10px;
+
+  .tile-content {
+    width: 100%
+  }
+
+  &.expanded {
+    width: 100%;
+    height: 320px;
+  }
+
+  &.hide {
+    .contract();
+  }
+
+  &:hover {
+    .material-shadow(2);
+  }
+}
+
 //----------------------------------------//
 // PAGE: LANDING
 //----------------------------------------//
 div.landing {
-  .page-default();
+  .page-default(100vh);
+
+  background-image: url('../img/landing.jpg');
+  background-size: 100%;
 
   div.landing-container {
     .page-container();
-    .material-center(45%, 50%);
+    .material-center(70%, 50%);
 
     overflow    : hidden;
     white-space : nowrap;
   }
 }
 
-h1 {
-  .unselectable-text();
-
-  font-size       : @font-size-title;
-  font-weight     : @font-weight-title;
-  text-align      : center;
-  border-bottom   : @color-grey-light solid 1px;
-  padding-bottom  : 10px;
-  margin          : 0;
-}
-
-h3 {
-  font-weight     : 200;
-  text-align      : center;
-}
-
 //----------------------------------------//
 // PAGE: ABOUT
 //----------------------------------------//
 div.about {
-  .page-default(150vh);
+  .page-default();
 
-  background : @color-grey-black;
+  background : @color-white;
 
   div.about-container {
     .page-container();
 
-    div.face {
-      width    : calc(100% / 3);
-      margin   : auto;
+    height      : 100%;
+    box-sizing  : border-box;
+    display     : flex;
+    flex-flow   : wrap;
 
-      img {
-        .shape-circle();
+    div.heading {
+      display: block;
+      position: relative;
+      left:50%;
+      transform : translate(-50%, 0);
+      width: 25%;
 
-        display     : block; 
-        margin      : auto;
-        max-height  : 80%; 
-        max-width   : 80%;
+      h3 {
+        margin: 0;
       }
     }
 
     div.text {
-      width  : calc(100% / 3);
-      color  : white;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      padding-left: 20%;
+      padding-right: 20%;
+      color: black;
+
+      p {
+      }
     }
 
-    div.line {
-      .shape-line(3px, 100px, 20deg);
+    div.tiles {
+      display: flex;
+      width: 100%;
 
-      border-radius : 3px;
-      background    : white;
+      div.tile {
+        .tile();
+
+        img {
+          max-width: 80%;
+          margin : 10%;
+        }
+      }
+    }
+  }
+}
+
+//----------------------------------------//
+// PAGE: PROJECTS
+//----------------------------------------//
+div.projects {
+  .page-default(100vh);
+
+  //background : @color-grey;
+
+  div.projects-container {
+    .page-container();
+
+    div.heading {
+      display: block;
+      position: relative;
+      left:50%;
+      transform : translate(-50%, 0);
+      width: 25%;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    div.projects {
+      display: flex;
+      width: 100%;
+
+      div.project {
+        .tile();
+      }
     }
   }
 }
@@ -174,7 +284,7 @@ div.about {
 // PAGE: PHOENIX
 //----------------------------------------//
 div.phoenix {
-  .page-default();
+  .page-default(150vh);
 
   //background : @color-grey;
 
@@ -187,24 +297,11 @@ div.phoenix {
 // PAGE: FEATHERSTORM
 //----------------------------------------//
 div.featherstorm {
-  .page-default();
+  .page-default(100vh);
 
   background : @color-black;
 
   div.featherstorm-container {
-    .page-container();
-  }
-}
-
-//----------------------------------------//
-// PAGE: VILLAVU
-//----------------------------------------//
-div.villavu {
-  .page-default();
-
-  //background : @color-grey;
-
-  div.villavu-container {
     .page-container();
   }
 }

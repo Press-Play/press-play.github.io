@@ -78,3 +78,15 @@ $('.nav-villavu').click(
 		$.when(scrollToElement("#4")).then(navigation_check());
 	}
 );
+
+function toggle_tile(tile_id, tiles) {
+	$('#skills').toggleClass('hide');
+	$('#jobs').toggleClass('hide');
+	$('#passions').toggleClass('hide');
+	// $('#edu').removeClass('hide');
+	$('#education').toggleClass('expanded');
+}
+
+function hide_element(element_id) {
+	$(`#${element_id}`).toggleClass('hide');
+}

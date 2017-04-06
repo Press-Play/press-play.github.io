@@ -1,19 +1,35 @@
-//- Navigation
-div(class="navigation")
-	div(class="navigation-container")
-		div(class="nav-button nav-landing")
-		div(class="nav-button nav-about")
-		div(class="nav-button nav-phoenix")
-		div(class="nav-button nav-featherstorm")
-		div(class="nav-button nav-villavu")
+//------------------------------------------------------------------------------
+//-	INDEX.JADE |
+//-------------.
+//-	This is the main body of the webpage that gets popped right into
+//-	`_layout.jade`. It essentially contains 2 components:
+//-		1. Navigation
+//-			These are the wonderful little circles that allow the user to 
+//-			navigate the page.
+//-		2. Sections
+//-			These are the pages/sections you can scroll/navigate to. Each has
+//-			their own container with attributes `id=[section_number]` and
+//-			`class=[section_name]`.
+//------------------------------------------------------------------------------
 
+//- Navigation
+//- div(class="navigation")
+//- 	div(class="navigation-container")
+//- 		div(class="nav-button nav-landing")
+//- 		div(class="nav-button nav-about")
+//- 		div(class="nav-button nav-phoenix")
+//- 		div(class="nav-button nav-featherstorm")
+//- 		div(class="nav-button nav-villavu")
+
+//- Sections
 div(id="0" class="landing")
-	div(class="landing-container")
-		include views/landing.jade
+	include views/landing.jade
 
 div(id="1" class="about")
-	div(class="about-container")
-		include views/about.jade
+	include views/about.jade
+
+div(id="2" class="projects")
+	include views/projects.jade
 
 div(id="2" class="phoenix")
 	div(class="phoenix-container")
@@ -22,7 +38,3 @@ div(id="2" class="phoenix")
 div(id="3" class="featherstorm")
 	div(class="featherstorm-container")
 		include views/models/_featherstorm.jade
-
-div(id="4" class="villavu")
-	div(class="villavu-container")
-		5
