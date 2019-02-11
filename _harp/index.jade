@@ -1,40 +1,31 @@
-//------------------------------------------------------------------------------
-//-	INDEX.JADE |
-//-------------.
-//-	This is the main body of the webpage that gets popped right into
-//-	`_layout.jade`. It essentially contains 2 components:
-//-		1. Navigation
-//-			These are the wonderful little circles that allow the user to 
-//-			navigate the page.
-//-		2. Sections
-//-			These are the pages/sections you can scroll/navigate to. Each has
-//-			their own container with attributes `id=[section_number]` and
-//-			`class=[section_name]`.
-//------------------------------------------------------------------------------
+div(class="landing")
+    div(class="landing-container")
+        h1 KHANH NGUYEN
+        h2 PRODUCT MANAGER
 
-//- Navigation
-//- div(class="navigation")
-//- 	div(class="navigation-container")
-//- 		div(class="nav-button nav-landing")
-//- 		div(class="nav-button nav-about")
-//- 		div(class="nav-button nav-phoenix")
-//- 		div(class="nav-button nav-featherstorm")
-//- 		div(class="nav-button nav-villavu")
+div(class="projects")
+    div(class="container")
+        div(class="logo")
+            a(href="http://apricot.khanh.com.au")
+                img(src="img/logo_apricot.png")
+        div(class="logo")
+            a(href="http://sunshine.khanh.com.au")
+                img(src="img/logo_sunshine.png")
+        div(class="logo")
+            a(href="http://bitter.khanh.com.au/cgi-bin/bitter.cgi")
+                img(src="img/logo_bitter.png")
 
-//- Sections
-div(id="0" class="landing")
-	include views/landing.jade
-
-div(id="1" class="about")
-	include views/about.jade
-
-div(id="2" class="projects")
-	include views/projects.jade
-
-div(id="2" class="phoenix")
-	div(class="phoenix-container")
-		include views/models/_phoenix.jade
-
-div(id="3" class="featherstorm")
-	div(class="featherstorm-container")
-		include views/models/_featherstorm.jade
+div(class="footer")
+    div(class="container")
+        div(class="icons")
+            div(class="icon")
+                a(href="http://github.com/Press-Play")
+                    img(src="img/icon_github.svg")
+            div(class="icon")
+                a(href="http://linkedin.com/in/khanhh")
+                    img(src="img/icon_linkedin.png")
+            div(class="icon")
+                a(href="http://medium.com/@press_play")
+                    img(src="img/icon_medium.png")
+        div(class="text")
+            p Khanh Nguyen

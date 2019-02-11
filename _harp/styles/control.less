@@ -1,109 +1,30 @@
-// Imports
 @import 'globals.less';
 
-
-//----------------------------------------//
-// GLOBAL DEFAULTS
-//----------------------------------------//
-// Main body and pages
+//----------------------------------------------------------------------------//
+// Global
+//----------------------------------------------------------------------------//
 body {
   .font-default();
 
-  background  : @color-white-grey;
-  margin      : 0;
-  padding     : 0;
+  background : @color-white-grey;
+  margin     : 0;
+  padding    : 0;
 }
 
 .page-default(@height: auto) {
-  width       : 100vw;
-  height      : @height;
-  overflow    : hidden;
-  background  : @color-white-grey;
+  width      : 100vw;
+  height     : @height;
+  overflow   : hidden;
+  background : @color-white-grey;
 }
 
 .page-container() {
-  padding   : 5%;
+  padding : 5%;
 }
 
-// Navagation circles
-.nav-circle(@landing) when(@landing = true ) { position: relative; }
-.nav-circle(@landing) when(@landing = false) { position: relative; }
-
-.nav-circle(@landing: true){
-  .shape-circle();
-
-  height            : 25px;
-  width             : 25px;
-  margin            : 20px;
-  background-color  : @color-grey-light;
-  cursor            : pointer; 
-  pointer-events    : all;
-
-  &:hover {
-    content           : url('../img/feather.png');
-    background-color  : @color-transparent;
-  }
-}
-
-div.nav-button {
-  .nav-circle();
-
-}
-// div.nav-landing {
-//  .nav-circle(true);
-// }
-// div.nav-about {
-//  .nav-circle(true);
-// }
-// div.nav-phoenix {
-//  .nav-circle(true);
-// }
-// div.nav-featherstorm {
-//  .nav-circle(true);
-// }
-// div.nav-villavu {
-//  .nav-circle(true);
-// }
-
-div.navigation {
-  .page-default();
-
-  position        : fixed;
-  top             : 0;
-  left            : 0;
-  background      : @color-transparent;
-  z-index         : 1;
-  pointer-events  : none;
-
-  div.navigation-container {
-    //.material-center(calc(58%), 50%);
-    .animated();
-    .visible();
-
-    position        : absolute;
-    top             : ~"calc(50% + 30px)";
-    left            : 50%;
-    transform       : translate(-50%, 5px);
-    height          : default;
-    width           : 400px;
-    display         : flex;
-    justify-content : space-between;
-
-    &.bottom {
-      .material-center(95%, 50%);
-    }
-
-    &.hide {
-      .hidden();
-      width: 100% !important;
-    }
-  }
-}
-
-
-//----------------------------------------//
-// TEXT
-//----------------------------------------//
+//----------------------------------------------------------------------------//
+// Text
+//----------------------------------------------------------------------------//
 h1 {
   .unselectable-text();
 
@@ -118,6 +39,8 @@ h1 {
 }
 
 h2 {
+  .unselectable-text();
+
   font-weight      : 800;
   text-align       : center;
   background-color : @color-black;
@@ -138,43 +61,9 @@ h4 {
   text-align: center;
 }
 
-//----------------------------------------//
-// TILES
-//----------------------------------------//
-.tile() {
-  .material-shadow(1);
-  .animated();
-  .visible();
-
-  width            : 25%;
-  // width            : calc(100% / 4);
-  height           : 180px;
-  color            : @color-black;
-  background-color : @color-white;
-  margin           : 10px;
-  padding          : 10px;
-
-  .tile-content {
-    width: 100%
-  }
-
-  &.expanded {
-    width: 100%;
-    height: 320px;
-  }
-
-  &.hide {
-    .contract();
-  }
-
-  &:hover {
-    .material-shadow(2);
-  }
-}
-
-//----------------------------------------//
-// PAGE: LANDING
-//----------------------------------------//
+//----------------------------------------------------------------------------//
+// Landing
+//----------------------------------------------------------------------------//
 div.landing {
   .page-default(100vh);
 
@@ -183,125 +72,80 @@ div.landing {
 
   div.landing-container {
     .page-container();
-    .material-center(70%, 50%);
+    .material-center(60%, 50%);
 
     overflow    : hidden;
     white-space : nowrap;
   }
 }
 
-//----------------------------------------//
-// PAGE: ABOUT
-//----------------------------------------//
-div.about {
+//----------------------------------------------------------------------------//
+// Projects
+//----------------------------------------------------------------------------//
+div.projects {
   .page-default();
 
   background : @color-white;
 
-  div.about-container {
+  div.container {
     .page-container();
 
     height      : 100%;
-    box-sizing  : border-box;
     display     : flex;
     flex-flow   : wrap;
+    justify-content: center;
 
-    div.heading {
-      display: block;
-      position: relative;
-      left:50%;
-      transform : translate(-50%, 0);
-      width: 25%;
+    div.logo{
+      .animated();
 
-      h3 {
-        margin: 0;
+      filter: grayscale(100%);
+      margin: 20px;
+
+      img {
+        max-height: 100px;
+      }
+
+      &:hover {
+        filter: grayscale(0%);
+        cursor: pointer; 
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------------------//
+// Footer
+//----------------------------------------------------------------------------//
+div.footer {
+  .page-default();
+
+  background : @color-grey;
+
+  div.container {
+    .page-container();
+
+    div.icons {
+      height      : 100%;
+      display     : flex;
+      flex-flow   : wrap;
+      justify-content: center;
+
+      div.icon {
+        .animated();
+
+        img {
+          max-height: 24px;
+          margin: 5px;
+        }
+
+        &:hover {
+          cursor: pointer; 
+        }
       }
     }
 
     div.text {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-      padding-left: 20%;
-      padding-right: 20%;
-      color: black;
-
-      p {
-      }
+      text-align: center;
     }
-
-    div.tiles {
-      display: flex;
-      width: 100%;
-
-      div.tile {
-        .tile();
-
-        img {
-          max-width: 80%;
-          margin : 10%;
-        }
-      }
-    }
-  }
-}
-
-//----------------------------------------//
-// PAGE: PROJECTS
-//----------------------------------------//
-div.projects {
-  .page-default(100vh);
-
-  //background : @color-grey;
-
-  div.projects-container {
-    .page-container();
-
-    div.heading {
-      display: block;
-      position: relative;
-      left:50%;
-      transform : translate(-50%, 0);
-      width: 25%;
-
-      h3 {
-        margin: 0;
-      }
-    }
-
-    div.projects {
-      display: flex;
-      width: 100%;
-
-      div.project {
-        .tile();
-      }
-    }
-  }
-}
-
-//----------------------------------------//
-// PAGE: PHOENIX
-//----------------------------------------//
-div.phoenix {
-  .page-default(150vh);
-
-  //background : @color-grey;
-
-  div.phoenix-container {
-    .page-container();
-  }
-}
-
-//----------------------------------------//
-// PAGE: FEATHERSTORM
-//----------------------------------------//
-div.featherstorm {
-  .page-default(100vh);
-
-  background : @color-black;
-
-  div.featherstorm-container {
-    .page-container();
   }
 }
